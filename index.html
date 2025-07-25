@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting Dashboard - Data Analytics Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1>Sales Forecasting Dashboard</h1>
+            <p class="subtitle">End-to-End Data Analytics Project</p>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <ul class="tab-list">
+                <li><button class="tab-button active" data-tab="overview">Overview</button></li>
+                <li><button class="tab-button" data-tab="historical">Historical Analysis</button></li>
+                <li><button class="tab-button" data-tab="model">Model Performance</button></li>
+                <li><button class="tab-button" data-tab="forecasting">Forecasting</button></li>
+                <li><button class="tab-button" data-tab="data-explorer">Data Explorer</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Overview Tab -->
+            <section id="overview" class="tab-content active">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Total Sales</h3>
+                        <div class="metric-value">$1.89M</div>
+                        <div class="metric-label">36 months period</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Average Daily Sales</h3>
+                        <div class="metric-value">$1,393</div>
+                        <div class="metric-label">Based on historical data</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Best Model Accuracy</h3>
+                        <div class="metric-value">89.5%</div>
+                        <div class="metric-label">Linear Regression Model</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Forecast Period</h3>
+                        <div class="metric-value">30 Days</div>
+                        <div class="metric-label">January 2025</div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Executive Summary</h2>
+                            <p>This comprehensive sales forecasting project demonstrates end-to-end data analytics capabilities, from data exploration to machine learning model development and deployment. The analysis covers 36 months of historical sales data (2022-2024) and provides accurate predictions for future sales performance.</p>
+                            
+                            <h3>Methodology</h3>
+                            <p>The project employed multiple machine learning algorithms including Linear Regression and Random Forest to identify the best-performing model. Feature engineering, cross-validation, and rigorous testing ensure reliable forecasts for business planning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Key Insights</h2>
+                            <ul class="insights-list">
+                                <li><strong>Seasonal Patterns:</strong> Sales consistently peak in November-December, showing 20-25% increase</li>
+                                <li><strong>Growth Trend:</strong> Year-over-year growth of approximately 8-12% observed</li>
+                                <li><strong>Model Performance:</strong> Linear Regression outperformed Random Forest with 89.5% accuracy</li>
+                                <li><strong>Forecast Confidence:</strong> January 2025 predictions show stable performance around $1,940 daily</li>
+                                <li><strong>Business Impact:</strong> Forecasting enables better inventory planning and resource allocation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Analysis Tab -->
+            <section id="historical" class="tab-content">
+                <div class="controls-section">
+                    <div class="filter-controls">
+                        <label for="yearFilter">Filter by Year:</label>
+                        <select id="yearFilter" class="form-control">
+                            <option value="all">All Years</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Historical Sales Trend</h3>
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="historicalChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Monthly Sales Pattern</h3>
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="monthlyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-table">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Sales Statistics</h3>
+                            <table id="statsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Value</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Model Performance Tab -->
+            <section id="model" class="tab-content">
+                <div class="model-comparison">
+                    <div class="chart-container">
+                        <h3>Model Performance Comparison</h3>
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="modelChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-metrics">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Model Evaluation Metrics</h3>
+                            <table id="modelMetricsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Train MAE</th>
+                                        <th>Test MAE</th>
+                                        <th>Test RMSE</th>
+                                        <th>R² Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-explanation">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Model Selection Rationale</h3>
+                            <p><strong>Linear Regression</strong> was selected as the best performing model based on:</p>
+                            <ul>
+                                <li><strong>Higher R² Score (0.895):</strong> Explains 89.5% of variance in sales data</li>
+                                <li><strong>Lower Test MAE (86.37):</strong> More accurate predictions on unseen data</li>
+                                <li><strong>Better Generalization:</strong> Less overfitting compared to Random Forest</li>
+                                <li><strong>Interpretability:</strong> Easier to understand and explain to stakeholders</li>
+                            </ul>
+                            <p>The Random Forest model showed signs of overfitting with excellent training performance but poorer test results.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecasting Tab -->
+            <section id="forecasting" class="tab-content">
+                <div class="forecast-charts">
+                    <div class="chart-container">
+                        <h3>30-Day Sales Forecast</h3>
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="forecastChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Actual vs Predicted (Validation)</h3>
+                        <div style="position: relative; height: 400px;">
+                            <canvas id="validationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast-summary">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Forecast Summary</h3>
+                            <div class="forecast-table-container" style="max-height: 300px; overflow-y: auto;">
+                                <table id="forecastTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Predicted Sales</th>
+                                            <th>Confidence Level</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Explorer Tab -->
+            <section id="data-explorer" class="tab-content">
+                <div class="explorer-controls">
+                    <div class="search-filters">
+                        <input type="text" id="dataSearch" class="form-control" placeholder="Search data...">
+                        <select id="sortBy" class="form-control">
+                            <option value="date">Sort by Date</option>
+                            <option value="sales">Sort by Sales</option>
+                            <option value="year">Sort by Year</option>
+                        </select>
+                        <button class="btn btn--primary" id="downloadBtn">Download Data</button>
+                    </div>
+                </div>
+
+                <div class="data-quality">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Data Quality Statistics</h3>
+                            <div class="quality-metrics">
+                                <div class="quality-item">
+                                    <span class="label">Total Records:</span>
+                                    <span class="value">36</span>
+                                </div>
+                                <div class="quality-item">
+                                    <span class="label">Date Range:</span>
+                                    <span class="value">Jan 2022 - Dec 2024</span>
+                                </div>
+                                <div class="quality-item">
+                                    <span class="label">Missing Values:</span>
+                                    <span class="value status--success">0 (0%)</span>
+                                </div>
+                                <div class="quality-item">
+                                    <span class="label">Data Completeness:</span>
+                                    <span class="value status--success">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-container">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Historical Sales Data</h3>
+                            <div class="table-wrapper">
+                                <table id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Sales ($)</th>
+                                            <th>Month</th>
+                                            <th>Year</th>
+                                            <th>Quarterly Performance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Animation -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Loading dashboard...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
