@@ -72,6 +72,6 @@ sales-forecasting-dashboard/
 - Deploy to cloud platform (Heroku, AWS, or Streamlit Cloud)
 
 ---
-**Created by**: [Your Name]  
-**Contact**: [Your Email]  
-**LinkedIn**: [Your LinkedIn Profile]
+**Created by**: [Mohamed Asfhaque A J]  
+**Contact**: [ajmasfhaque@gmail.com]  
+**LinkedIn**: [mdasfhaque]
